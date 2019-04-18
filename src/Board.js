@@ -180,9 +180,9 @@
     // test if a specific minor diagonal on this board contains a conflict
     hasMinorDiagonalConflictAt: function(minorDiagonalColumnIndexAtFirstRow) { 
       let count = 0; 
-      for (let i = 0; i < this["attributes"].n - minorDiagonalColumnIndexAtFirstRow; i ++) { 
-        // console.log(i, i-majorDiagonalColumnIndexAtFirstRow)
-        if (this["attributes"][this["attributes"].n - 1 - i][i + minorDiagonalColumnIndexAtFirstRow]) { 
+      for (let i = 0; i <= minorDiagonalColumnIndexAtFirstRow; i ++) { 
+        // console.log(i, i-minorDiagonalColumnIndexAtFirstRow)
+        if (this["attributes"][i][minorDiagonalColumnIndexAtFirstRow - i]) { 
           count ++; 
         } 
       } 
@@ -190,6 +190,16 @@
         return true; 
       }
       return false; // fixme
+      // for (let i = 0; i < this["attributes"].n - minorDiagonalColumnIndexAtFirstRow; i ++) { 
+      //   // console.log(i, i-majorDiagonalColumnIndexAtFirstRow)
+      //   if (this["attributes"][this["attributes"].n - 1 - i][i + minorDiagonalColumnIndexAtFirstRow]) { 
+      //     count ++; 
+      //   } 
+      // } 
+      // if (count > 1) { 
+      //   return true; 
+      // }
+      // return false; // fixme
     },
 
     // test if any minor diagonals on this board contain conflicts
@@ -198,9 +208,20 @@
         if(this.hasMinorDiagonalConflictAt(i)){
           return true;
         }
+      } 
+      let count = 0; 
+      for (let q = 0; q < ; q++){
+      for (let i = q; i <= this["attributes"].n; i ++) { 
+        if (this["attributes"][i][this["attributes"].n - i]) { 
+          count ++; 
+        } 
+      }
+    } 
+      if (count > 1) { 
+        return true; 
       }
       return false; // fixme
-    }
+    } 
 
     /*--------------------  End of Helper Functions  ---------------------*/
 
