@@ -210,13 +210,13 @@
         }
       } 
       let count = 0; 
-      for (let q = 0; q < ; q++){
-      for (let i = q; i <= this["attributes"].n; i ++) { 
-        if (this["attributes"][i][this["attributes"].n - i]) { 
-          count ++; 
-        } 
-      }
-    } 
+      for (let j = 0; j < this["attributes"].n ; j++){
+        for (let i = 1; i < this["attributes"].n - j; i ++) { 
+          if (this["attributes"][this["attributes"].n - i][i + j]) { 
+            count ++; 
+          } 
+        }
+      } 
       if (count > 1) { 
         return true; 
       }
